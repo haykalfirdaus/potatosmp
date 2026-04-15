@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Potato SMP Store</title>
+<link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:url('https://haykalfirdaus.github.io/potatosmp/potato1.jpg') center/cover no-repeat fixed;color:#fff;display:flex;flex-direction:column;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);z-index:-1}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:20px}
+.login-box{background:rgba(0,0,0,0.65);padding:30px 25px;border-radius:16px;text-align:center;max-width:450px;width:100%;box-shadow:0 8px 20px rgba(0,0,0,0.6)}
+.login-box h2{font-family:'Minecraft',monospace;font-size:28px;margin-bottom:25px;color:#fff}
+.input-group{display:flex;align-items:center;justify-content:flex-start;position:relative;margin-bottom:15px}
+.input-group select{padding:10px;border-radius:10px 0 0 10px;border:none;background:#111;color:#fff;outline:none;cursor:pointer}
+.input-group .dot{position:absolute;left:calc(100px + 8px);top:50%;transform:translateY(-50%);color:#fff;font-weight:bold;user-select:none;pointer-events:none;display:none;font-size:18px}
+.input-group input{padding:10px 10px 10px 25px;border-radius:0 10px 10px 0;border:none;flex:1;outline:none;background:rgba(0,0,0,0.3);color:#fff;font-size:14px}
+.login-box button{padding:12px 20px;margin-top:10px;border:none;border-radius:14px;background:linear-gradient(135deg,#ff6b35,#ff8c42);color:#fff;font-weight:bold;cursor:pointer;width:80%;font-size:16px}
+.login-box button:hover{background:linear-gradient(135deg,#ff8c42,#ff6b35)}
+.login-box p.notice{font-size:13px;color:#ccc;margin-top:10px}
+.login-box p.notice a{color:#ff6b35;text-decoration:underline}
+footer{padding:20px;text-align:center;background:rgba(0,0,0,.7);border-radius:16px;margin-top:auto}
+footer a{color:#ff6b35;text-decoration:none}
+footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<main>
+<div class="login-box">
+<h2>🔑 MASUK</h2>
+
+<div class="input-group">
+<select id="platform">
+<option value="java">JAVA</option>
+<option value="bedrock">BEDROCK</option>
+</select>
+<span class="dot" id="dot">.</span>
+<input type="text" id="player-name" placeholder="Nama Minecraft">
+</div>
+
+<p class="notice">
+Dengan login, anda menyetujui <a href="syarat-ketentuan.html">Syarat dan Ketentuan</a>.
+</p>
+
+<button id="login-btn">Log In</button>
+</div>
+</main>
+
+<footer>
+<p>© Potato SMP, All rights reserved</p>
+<p>
+<a href="syarat-ketentuan.html">Syarat & Ketentuan</a> |
+<a href="https://discord.gg/QPYKkq5TuF">Discord</a> |
+<a href="https://whatsapp.com/channel/0029VbCPghX8KMqozpSyn724">WhatsApp</a>
+</p>
+<p style="color:#ccc;font-size:12px;margin-top:6px;">Potato SMP tidak berafiliasi dengan Mojang Studios atau Microsoft.</p>
+</footer>
+
+<script>
+const platformSelect = document.getElementById('platform');
+const dot = document.getElementById('dot');
+const playerNameInput = document.getElementById('player-name');
+const loginBtn = document.getElementById('login-btn');
+
+const urlParams = new URLSearchParams(window.location.search);
+let redirectPage = urlParams.get('to') || 'money';
+
+if(localStorage.getItem('player')) playerNameInput.value = localStorage.getItem('player');
+
+function updateDot(){
+    dot.style.display = (platformSelect.value==='bedrock') ? 'inline-block' : 'none';
+}
+platformSelect.addEventListener('change', updateDot);
+updateDot();
+
+loginBtn.addEventListener('click', ()=>{
+    const name = playerNameInput.value.trim();
+    if(!name){ alert('Masukkan nama Minecraft!'); return; }
+
+    const displayName = (platformSelect.value==='bedrock') ? '. ' + name : name;
+    localStorage.setItem('player', displayName);
+
+    let targetUrl = '';
+    switch(redirectPage.toLowerCase()){
+        case 'money':
+            targetUrl = 'money.html?player=' + encodeURIComponent(displayName);
+            break;
+        case 'skills':
+            targetUrl = 'skills.html?player=' + encodeURIComponent(displayName);
+            break;
+        default:
+            targetUrl = 'money.html?player=' + encodeURIComponent(displayName);
+    }
+    window.location.href = targetUrl;
+});
+</script>
+
+</body>
+</html>
