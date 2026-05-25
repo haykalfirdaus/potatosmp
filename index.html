@@ -169,7 +169,7 @@
         <h1>SERVER MINECRAFT <span class="potato-text">POTATO</span> <span class="smp-text">SMP</span></h1>
         
         <div class="desc-container">
-            <p><strong>play.potatosmp.my.id | 19224</strong></p>
+            <p><strong>play.potatosmp.my.id | 19132</strong></p>
             <p>Potato SMP adalah server Minecraft Indonesia dengan tema Survival Economy yang seru dan kompetitif. Di sini kamu bisa bermain, berkembang, dan bersaing bersama player lain dalam sistem ekonomi yang menarik.</p>
             <p>Kata "SMP" merupakan singkatan dari Survival Multiplayer, di mana petualangan dimulai bersama komunitas.</p>
         </div>
@@ -210,12 +210,12 @@
                 </div>
                 <div class="ip-row copy-el">
                     <span>PORT</span>
-                    <strong>19224 📋</strong>
+                    <strong>19132 📋</strong>
                 </div>
                 <div class="ip-row"><span>VERSI BEDROCK</span><strong>1.21 - 1.26+</strong></div>
                 <div class="ip-row"><span>VERSI JAVA</span><strong>1.20 - 1.26+</strong></div>
                 <div class="ip-row"><span>SUPPORT</span><strong>Java, Bedrock, Crack</strong></div>
-                <a href="minecraft://?addExternalServer=PotatoSMP|play.potatosmp.my.id:19224" class="btn btn-main" style="width: 100%; justify-content: center; margin-top: 25px; border-radius: 18px;">Tambahkan Ke Minecraft</a>
+                <a href="minecraft://?addExternalServer=PotatoSMP|play.potatosmp.my.id:19132" class="btn btn-main" style="width: 100%; justify-content: center; margin-top: 25px; border-radius: 18px;">Tambahkan Ke Minecraft</a>
             </div>
         </div>
 
@@ -339,7 +339,7 @@
     async function updateStatus(){
       const el = document.getElementById('playerStatus');
       try {
-        const res = await fetch('https://api.mcsrvstat.us/2/play.potatosmp.my.id:19224');
+        const res = await fetch('https://api.mcsrvstat.us/2/play.potatosmp.my.id:19132');
         const data = await res.json();
         if (data.online) {
             el.innerText = data.players.online;
