@@ -42,7 +42,7 @@
         .sidebar { 
             position: fixed; top: 0; right: -100%; width: 320px; height: 100%; 
             background: #0a0a0a; z-index: 2000; transition: 0.5s cubic-bezier(0.77,0,0.175,1); 
-            padding: 50px 25px; border-left: 3px solid var(--orange);
+            padding: 50px 25px; border-left: 3px solid var(--orange); overflow-y: auto;
         }
         .sidebar.active { right: 0; }
         .sidebar-logo { margin-bottom: 30px; letter-spacing: 2px; font-family: 'Montserrat'; text-align: center; font-size: 1.2rem; font-weight: 900; color: var(--orange); }
@@ -115,8 +115,13 @@
         .list-text span { color: var(--text-muted); font-size: 0.85rem; display: block; line-height: 1.5; }
 
         .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 30px; }
-        .store-card { background: linear-gradient(145deg, #111, #080808); padding: 60px 40px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; text-align: center; }
-        .store-card h3 { font-family: 'Montserrat'; font-size: 1.8rem; margin-bottom: 20px; color: var(--orange); }
+        .store-card { background: linear-gradient(145deg, #111, #080808); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; text-align: center; display: flex; flex-direction: column; }
+        .store-card:hover { transform: translateY(-10px); border-color: rgba(255, 107, 53, 0.5); box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15); }
+        .store-card h3 { font-family: 'Montserrat'; font-size: 1.6rem; margin-bottom: 10px; color: var(--orange); text-transform: uppercase; }
+        .store-card .price { font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 20px; }
+        .store-card ul { text-align: left; margin-bottom: 30px; flex-grow: 1; }
+        .store-card li { font-size: 0.85rem; color: #ccc; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; }
+        .store-card li::before { content: "•"; color: var(--orange); }
 
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
         .gallery-item { border-radius: 35px; overflow: hidden; height: 320px; border: 3px solid rgba(255,255,255,0.05); transition: 0.3s; }
@@ -153,7 +158,8 @@
         <a href="#portal" class="sidebar-btn btn-side-link" onclick="toggleSidebar()">🌐 KONEKSI SERVER</a>
         <a href="#store" class="sidebar-btn btn-side-store" onclick="toggleSidebar()">🛒 STORE SERVER</a>
         <a href="https://whatsapp.com/channel/0029VbCPghX8KMqozpSyn724" target="_blank" class="sidebar-btn btn-side-wa">💚 SALURAN WHATSAPP</a>
-        <a href="https://discord.gg/QPYKkq5TuF" target="_blank" class="sidebar-btn btn-side-dc">💎 JOIN DISCORD</a>
+        <a href="https://chat.whatsapp.com/DsOfXHhMbOPLukvvU7iYPk" target="_blank" class="sidebar-btn btn-side-wa">💬 GRUP WHATSAPP</a>
+        <a href="https://discord.gg/PZ8gG2nkfb" target="_blank" class="sidebar-btn btn-side-dc">💎 JOIN DISCORD</a>
     </div>
 
     <nav>
@@ -177,7 +183,7 @@
         <div class="hero-btns">
             <a href="#portal" class="btn btn-main" id="joinBtn">🎮 MAIN SEKARANG</a>
             <a href="https://whatsapp.com/channel/0029VbCPghX8KMqozpSyn724" target="_blank" class="btn btn-wa">💚 SALURAN WA</a>
-            <a href="https://discord.gg/QPYKkq5TuF" target="_blank" class="btn btn-dc">💎 JOIN DISCORD</a>
+            <a href="https://discord.gg/PZ8gG2nkfb" target="_blank" class="btn btn-dc">💎 JOIN DISCORD</a>
         </div>
 
         <div class="stats-grid">
@@ -290,25 +296,174 @@
 
     <section class="section" id="store">
         <h2 class="section-title">OFFICIAL STORE</h2>
-        <p style="margin-bottom: 30px;">Hubungi admin via WhatsApp untuk informasi lengkap fitur rank!</p>
+        <p style="margin-bottom: 30px;">Hubungi admin via WhatsApp untuk melakukan pembelian!</p>
         <div class="store-grid">
             <div class="store-card">
-                <h3>💎 RANK</h3>
-                <p>Dapatkan pangkat mewah & fitur eksklusif server.</p>
-                <p style="margin: 20px 0; font-size: 0.9rem; color: #aaa;">VIP: 15k | VIP+: 30k | MVP: 50k | MVP+: 80k<br>Yongsun: 125k | Yongsun+: 175k<br>Nightmare: 230k | Nightmare+: 300k</p>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20tanya%20tentang%20Rank%20server" target="_blank" class="btn btn-main btn-buy">HUBUNGI ADMIN</a>
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">⚔️</div>
+                <h3>Silver</h3>
+                <div class="price">Rp 10.000</div>
+                <ul>
+                    <li>/feed</li>
+                    <li>/anvil</li>
+                    <li>/enderchest</li>
+                    <li>/craft</li>
+                    <li>Claim limit +1</li>
+                    <li>block limit +12k</li>
+                    <li>Player Vault +1</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Silver" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
+
             <div class="store-card">
-                <h3>💰 MONEY</h3>
-                <p>Tambah Money instan di dalam game.</p>
-                <p style="margin: 20px 0; font-size: 0.9rem; color: #aaa;">100k Money = Rp 3.000</p>
-                <a href="login.html?to=money" class="btn btn-main btn-buy">TOPUP MONEY</a>
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🌟</div>
+                <h3>Golden</h3>
+                <div class="price">Rp 15.000</div>
+                <ul>
+                    <li>*semua fitur rank Silver</li>
+                    <li>/nick</li>
+                    <li>/tp</li>
+                    <li>/eskull</li>
+                    <li>claim limit +2</li>
+                    <li>block limit +20k</li>
+                    <li>Player Vault +2</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Golden" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
+
             <div class="store-card">
-                <h3>🛡️ SKILLS</h3>
-                <p>Tingkatkan level skill karaktermu secara instan.</p>
-                <p style="margin: 20px 0; font-size: 0.9rem; color: #aaa;">2 Level = Rp 2.500</p>
-                <a href="login.html?to=skills" class="btn btn-main btn-buy">BELI SKILL</a>
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🏅</div>
+                <h3>Elite</h3>
+                <div class="price">Rp 30.000</div>
+                <ul>
+                    <li>*semua fitur rank Golden</li>
+                    <li>/fly</li>
+                    <li>/repair</li>
+                    <li>/heal</li>
+                    <li>claim limit +2</li>
+                    <li>block limit +35k</li>
+                    <li>Player Vault +2</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Elite" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+            </div>
+            
+            <div class="store-card">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🌀</div>
+                <h3>Legend</h3>
+                <div class="price">Rp 50.000</div>
+                <ul>
+                    <li>*semua fitur rank Elite</li>
+                    <li>/potion</li>
+                    <li>/vanish</li>
+                    <li>/speed</li>
+                    <li>claim limit +3</li>
+                    <li>blocklimit +50k</li>
+                    <li>Player Vault +3</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Legend" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+            </div>
+            
+            <div class="store-card">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🎣</div>
+                <h3>Slayer</h3>
+                <div class="price">Rp 80.000</div>
+                <ul>
+                    <li>*semua fitur rank Legend</li>
+                    <li>/time set/day/night/noon</li>
+                    <li>/enchant</li>
+                    <li>/vanish</li>
+                    <li>claim limit +3</li>
+                    <li>block limit +75k</li>
+                    <li>Player Vault +4</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Slayer" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+            </div>
+            
+            <div class="store-card">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🧊</div>
+                <h3>Frozen</h3>
+                <div class="price">Rp 135.000</div>
+                <ul>
+                    <li>*semua fitur rank Slayer</li>
+                    <li>/god</li>
+                    <li>/invsee</li>
+                    <li>/jump</li>
+                    <li>claim limit +4</li>
+                    <li>blocklimit +100k</li>
+                    <li>Player Vault +5</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Frozen" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+            </div>
+            
+            <div class="store-card">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🚩</div>
+                <h3>Mythic</h3>
+                <div class="price">Rp 185.000</div>
+                <ul>
+                    <li>*semua fitur rank Frozen</li>
+                    <li>/near</li>
+                    <li>/weather set/sun/rain/thunder</li>
+                    <li>/exp</li>
+                    <li>claim limit +5</li>
+                    <li>blocklimit +150k</li>
+                    <li>Player Vault +6</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Mythic" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+            </div>
+            
+            <div class="store-card">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🌂</div>
+                <h3>Immortal</h3>
+                <div class="price">Rp 240.000</div>
+                <ul>
+                    <li>*semua fitur rank Mythic</li>
+                    <li>- gma (adventure)</li>
+                    <li>- gmsp (spectator)</li>
+                    <li>- kill (diri sendiri)</li>
+                    <li>claim limit +6</li>
+                    <li>claim block +200k</li>
+                    <li>Player Vault +8</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Immortal" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+            </div>
+            
+            <div class="store-card">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🌿</div>
+                <h3>Celestial</h3>
+                <div class="price">Rp 300.000</div>
+                <ul>
+                    <li>*semua fitur rank Immortal</li>
+                    <li>/effect</li>
+                    <li>/tp paksa</li>
+                    <li>claim land +8</li>
+                    <li>block limit +275k</li>
+                    <li>Player Vault +10</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Celestial" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+            </div>
+            
+            <div class="store-card">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🌻</div>
+                <h3>Lunarlight</h3>
+                <div class="price">Rp 420.000</div>
+                <ul>
+                    <li>*semua fitur rank Celestial</li>
+                    <li>/attribute</li>
+                    <li>/list</li>
+                    <li>claim land +200</li>
+                    <li>blocklimit +500k</li>
+                    <li>Player Vault +15</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Lunarlight" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+            </div>
+
+            <div class="store-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto;">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">💰</div>
+                <h3>Money & 🛡️ Skills</h3>
+                <ul>
+                    <li>100k Money = Rp 3.000</li>
+                    <li>2 Level Skill = Rp 2.500</li>
+                </ul>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20topup" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
         </div>
     </section>
@@ -326,11 +481,11 @@
     <footer>
       <div class="footer-logo"><span style="color:var(--orange)">POTATO</span> SMP</div>
       <p>Server Minecraft Survival Economy Indonesia.</p>
-      <div style="margin-bottom: 30px;">
-        <a href="syarat-ketentuan.html">Syarat & Ketentuan</a> |
-        <a href="https://discord.gg/QPYKkq5TuF">Discord</a> |
-        <a href="https://whatsapp.com/channel/0029VbCPghX8KMqozpSyn724">WhatsApp</a> |
-        <a href="https://chat.whatsapp.com/KlbyIMQnPkj5I5Nj62gLmE">Group Chat</a>
+      <div style="margin-bottom: 30px; margin-top: 20px;">
+        <a href="syarat-ketentuan.html" style="margin: 0 10px;">Syarat & Ketentuan</a> |
+        <a href="https://discord.gg/PZ8gG2nkfb" style="margin: 0 10px;">Discord</a> |
+        <a href="https://whatsapp.com/channel/0029VbCPghX8KMqozpSyn724" style="margin: 0 10px;">WhatsApp Channel</a> |
+        <a href="https://chat.whatsapp.com/DsOfXHhMbOPLukvvU7iYPk" style="margin: 0 10px;">Group Chat</a>
       </div>
       <p style="font-size: 0.75rem; color: #444;">© 2024 - 2026 Potato SMP Network.</p>
     </footer>
@@ -363,7 +518,7 @@
     document.querySelectorAll('.copy-el').forEach(el => {
         el.addEventListener('click', () => {
             const strong = el.querySelector('strong');
-            const text = strong.textContent.replace(' 📋','');
+            const text = strong.textContent.replace(' 📋','').trim();
             navigator.clipboard.writeText(text).then(() => {
                 alert('Tersalin: ' + text);
             });
