@@ -42,7 +42,7 @@
         .sidebar { 
             position: fixed; top: 0; right: -100%; width: 320px; height: 100%; 
             background: #0a0a0a; z-index: 2000; transition: 0.5s cubic-bezier(0.77,0,0.175,1); 
-            padding: 50px 25px; border-left: 3px solid var(--orange); overflow-y: auto;
+            padding: 50px 25px; border-left: 3px solid var(--orange);
         }
         .sidebar.active { right: 0; }
         .sidebar-logo { margin-bottom: 30px; letter-spacing: 2px; font-family: 'Montserrat'; text-align: center; font-size: 1.2rem; font-weight: 900; color: var(--orange); }
@@ -115,13 +115,12 @@
         .list-text span { color: var(--text-muted); font-size: 0.85rem; display: block; line-height: 1.5; }
 
         .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 30px; }
-        .store-card { background: linear-gradient(145deg, #111, #080808); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; text-align: center; display: flex; flex-direction: column; }
-        .store-card:hover { transform: translateY(-10px); border-color: rgba(255, 107, 53, 0.5); box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15); }
-        .store-card h3 { font-family: 'Montserrat'; font-size: 1.6rem; margin-bottom: 10px; color: var(--orange); text-transform: uppercase; }
-        .store-card .price { font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 20px; }
-        .store-card ul { text-align: left; margin-bottom: 30px; flex-grow: 1; }
-        .store-card li { font-size: 0.85rem; color: #ccc; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; }
-        .store-card li::before { content: "•"; color: var(--orange); }
+        .store-card { background: linear-gradient(145deg, #111, #080808); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; text-align: center; }
+        .store-card h3 { font-family: 'Montserrat'; font-size: 1.6rem; margin-bottom: 10px; color: var(--orange); }
+        .store-card .price { font-size: 1.5rem; font-weight: bold; color: white; margin-bottom: 20px; }
+        .store-card ul { text-align: left; color: #ccc; font-size: 0.85rem; margin-bottom: 30px; list-style: none; }
+        .store-card ul li { margin-bottom: 10px; padding-left: 15px; position: relative; }
+        .store-card ul li::before { content: "•"; color: var(--orange); position: absolute; left: 0; font-weight: bold; }
 
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
         .gallery-item { border-radius: 35px; overflow: hidden; height: 320px; border: 3px solid rgba(255,255,255,0.05); transition: 0.3s; }
@@ -129,11 +128,9 @@
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-item:hover { border-color: var(--orange); box-shadow: var(--glow); }
 
-        .vote-section { background: rgba(255, 107, 53, 0.05); border: 2px solid var(--orange); border-radius: 40px; padding: 50px; margin-top: 50px; }
-        .vote-section h3 { color: var(--orange); font-family: 'Montserrat'; font-size: 2rem; margin-bottom: 20px; }
+        .vote-section { background: rgba(255, 107, 53, 0.05); border: 2px solid var(--orange); border-radius: 40px; padding: 50px; margin-top: 50px; text-align: left; }
+        .vote-section h3 { color: var(--orange); font-family: 'Montserrat'; font-size: 1.8rem; margin-bottom: 20px; text-align: center; }
         .vote-section p { margin-bottom: 10px; }
-        .vote-section .vote-rewards { background: rgba(0,0,0,0.4); padding: 20px; border-radius: 20px; margin: 20px 0; }
-        .vote-section .vote-rewards h4 { color: var(--orange); margin-bottom: 15px; }
 
         footer { padding: 100px 8% 50px; text-align: center; background: #030303; border-top: 2px solid var(--orange); }
         .footer-logo { font-size: 1.8rem; font-weight: 900; margin-bottom: 25px; font-family: 'Montserrat'; }
@@ -158,13 +155,13 @@
         <a href="#portal" class="sidebar-btn btn-side-link" onclick="toggleSidebar()">🌐 KONEKSI SERVER</a>
         <a href="#store" class="sidebar-btn btn-side-store" onclick="toggleSidebar()">🛒 STORE SERVER</a>
         <a href="https://whatsapp.com/channel/0029VbCPghX8KMqozpSyn724" target="_blank" class="sidebar-btn btn-side-wa">💚 SALURAN WHATSAPP</a>
-        <a href="https://chat.whatsapp.com/DsOfXHhMbOPLukvvU7iYPk" target="_blank" class="sidebar-btn btn-side-wa">💬 GRUP WHATSAPP</a>
         <a href="https://discord.gg/PZ8gG2nkfb" target="_blank" class="sidebar-btn btn-side-dc">💎 JOIN DISCORD</a>
+        <a href="https://chat.whatsapp.com/DsOfXHhMbOPLukvvU7iYPk" target="_blank" class="sidebar-btn btn-side-wa">💬 GRUP WHATSAPP</a>
     </div>
 
     <nav>
         <div class="nav-logo">
-            <img src="https://haykalfirdaus.github.io/potatosmp/potatologo.jpg">
+            <img src="https://haykalfirdaus.github.io/potatosmp/potatologo.jpg" alt="Logo">
             <span><span class="potato-text">POTATO</span> <span class="smp-text">SMP</span></span>
         </div>
         <div class="menu-btn" onclick="toggleSidebar()">☰</div>
@@ -187,7 +184,7 @@
         </div>
 
         <div class="stats-grid">
-            <div class="stat-card"><h4 id="playerStatus">0</h4><p>Players Active</p></div>
+            <div class="stat-card"><h4 id="playerStatus" style="color: #aaa;">Memuat...</h4><p>Players Active</p></div>
             <div class="stat-card"><h4>1.20 - 1.26+</h4><p>Server Version</p></div>
             <div class="stat-card"><h4>JAVA & BE</h4><p>Cross Platform</p></div>
         </div>
@@ -208,7 +205,7 @@
 
         <h2 class="section-title">PORTAL KONEKSI</h2>
         <div class="portal-card">
-            <div class="portal-logo"><img src="https://haykalfirdaus.github.io/potatosmp/potatologo.jpg"></div>
+            <div class="portal-logo"><img src="https://haykalfirdaus.github.io/potatosmp/potatologo.jpg" alt="Logo"></div>
             <div class="portal-info">
                 <div class="ip-row copy-el">
                     <span>SERVER IP</span>
@@ -250,57 +247,79 @@
                     <li><div class="icon-sq">💰</div><div class="list-text"><b>Bansos</b><span>Bantuan sosial dari server.</span></div></li>
                     <li><div class="icon-sq">👷</div><div class="list-text"><b>Job</b><span>Sistem pekerjaan untuk cuan.</span></div></li>
                     <li><div class="icon-sq">🎒</div><div class="list-text"><b>Backpack</b><span>Tas tambahan untuk inventory.</span></div></li>
-                    <li><div class="icon-sq">🤝</div><div class="list-text"><b>Trade</b><span>Trading aman antar player.</span></div></li>
                     <li><div class="icon-sq">⚡</div><div class="list-text"><b>QuickShop</b><span>Buat toko sendiri dengan cepat.</span></div></li>
                     <li><div class="icon-sq">🛡️</div><div class="list-text"><b>Skills</b><span>Tingkatkan kemampuan karakter.</span></div></li>
-                    <li><div class="icon-sq">👤</div><div class="list-text"><b>Skin</b><span>Ganti skin custom sesukamu.</span></div></li>
                     <li><div class="icon-sq">🏦</div><div class="list-text"><b>Auction House</b><span>Lelang item dengan player lain.</span></div></li>
                     <li><div class="icon-sq">🎲</div><div class="list-text"><b>RTP</b><span>Random teleport ke lokasi acak.</span></div></li>
                     <li><div class="icon-sq">💎</div><div class="list-text"><b>Ranks</b><span>Sistem ranking dengan benefit.</span></div></li>
-                    <li><div class="icon-sq">🎰</div><div class="list-text"><b>Gacha</b><span>Dapatkan item menarik dari gacha.</span></div></li>
-                    <li><div class="icon-sq">⛏️</div><div class="list-text"><b>Mining Sim</b><span>Area khusus untuk mining.</span></div></li>
-                    <li><div class="icon-sq">😴</div><div class="list-text"><b>AFK Rewards</b><span>Dapat reward saat AFK.</span></div></li>
-                    <li><div class="icon-sq">⚔️</div><div class="list-text"><b>PvP Duel</b><span>Duel 1v1 dengan player lain.</span></div></li>
                     <li><div class="icon-sq">🗺️</div><div class="list-text"><b>Claim Land</b><span>Klaim dan lindungi area kamu.</span></div></li>
                     <li><div class="icon-sq">🏠</div><div class="list-text"><b>SetHome</b><span>Set home untuk teleport cepat.</span></div></li>
-                    <li><div class="icon-sq">👥</div><div class="list-text"><b>Clan Team</b><span>Buat tim dengan teman-teman.</span></div></li>
-                    <li><div class="icon-sq">🎁</div><div class="list-text"><b>Starter Kits</b><span>Perlengkapan awal gratis.</span></div></li>
-                    <li><div class="icon-sq">😴</div><div class="list-text"><b>One Player Sleep</b><span>1 player tidur = skip malam.</span></div></li>
-                    <li><div class="icon-sq">🗳️</div><div class="list-text"><b>Vote Reward</b><span>Hadiah menarik dari voting.</span></div></li>
                 </ul>
+            </div>
+            
+            <div class="card-list" style="grid-column: 1 / -1;">
+                <h3>🌍 EVENT SERVER</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                        <div class="icon-sq" style="font-size: 1.8rem;">☄️</div>
+                        <div class="list-text"><b style="color: white; font-size: 1rem; margin-bottom: 4px; display: block;">/meteor</b><span style="color: #aaa; font-size: 0.85rem;">Saksikan hujan meteor yang jatuh ke bumi membawa material berharga.</span></div>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                        <div class="icon-sq" style="font-size: 1.8rem;">🍀</div>
+                        <div class="list-text"><b style="color: white; font-size: 1rem; margin-bottom: 4px; display: block;">/luckyrain</b><span style="color: #aaa; font-size: 0.85rem;">Hujan penuh keberuntungan, dapatkan drop item menarik dari langit!</span></div>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                        <div class="icon-sq" style="font-size: 1.8rem;">🌧️</div>
+                        <div class="list-text"><b style="color: white; font-size: 1rem; margin-bottom: 4px; display: block;">/acidrain</b><span style="color: #aaa; font-size: 0.85rem;">Hati-hati! Hujan asam beracun yang dapat mengurangi darah jika tidak berteduh.</span></div>
+                    </div>
+                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                        <div class="icon-sq" style="font-size: 1.8rem;">🩸</div>
+                        <div class="list-text"><b style="color: white; font-size: 1rem; margin-bottom: 4px; display: block;">/bloodmoon</b><span style="color: #aaa; font-size: 0.85rem;">Bulan merah mengerikan, monster menjadi lebih kuat dengan drop hadiah langka!</span></div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="vote-section">
-            <h3>🗳️ VOTE SERVER & DAPATKAN HADIAH!</h3>
-            <div class="vote-rewards">
-                <h4>Hadiah Vote:</h4>
-                <p>💰 75K Money Server</p>
-                <p>🎁 3x Key Vote</p>
-                <p>⭐ 3x Key Premium</p>
+            <h3>🗳️ VOTE SERVER & DAPATKAN RANK VOTE GRATIS 4 JAM, 50K MONEY DAN 2× VOTE KEY</h3>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="https://minecraft-mp.com/server-s353692" target="_blank" class="btn btn-main" style="font-size: 1.1rem; padding: 18px 40px; border-radius: 20px;">VOTE SEKARANG & RAIH HADIAH</a>
+                <p style="margin-top: 15px; color: #ccc;">Bisa vote server lebih dari 1× dan dapatkan banyak hadiah.</p>
             </div>
-            <p>Bisa vote server lebih dari 1× dan dapatkan banyak hadiah!</p>
-            <a href="https://minecraft-mp.com/server-s353692" target="_blank" class="btn btn-main" style="margin-top: 20px;">VOTE SEKARANG</a>
-            <div style="margin-top: 20px; text-align: left; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px;">
-                <h4 style="color: var(--orange); margin-bottom: 10px;">Cara Vote:</h4>
-                <ol style="padding-left: 20px;">
-                    <li>Tekan menu vote</li>
-                    <li>Isi nama Minecraft kalian</li>
-                    <li>Tekan tombol vote</li>
-                </ol>
-                <p style="margin-top: 15px;"><strong>BEDROCK 🪨:</strong> Awalan nama isi "." (contoh: .Kentang6814)</p>
-                <p><strong>JAVA ☁:</strong> Tidak perlu titik</p>
+            
+            <div style="background: rgba(0,0,0,0.4); padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 107, 53, 0.2);">
+                <h4 style="color: var(--orange); margin-bottom: 15px; font-size: 1.2rem; font-family: 'Montserrat';">CARA VOTE 🍄</h4>
+                <ul style="list-style: none; color: #ccc; margin-bottom: 25px; padding-left: 0;">
+                    <li style="margin-bottom: 8px;">°• Tekan menu vote</li>
+                    <li style="margin-bottom: 8px;">°• Isi nama Minecraft kalian</li>
+                    <li style="margin-bottom: 8px;">°• Tekan tombol vote</li>
+                </ul>
+                
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 25px;">
+                    <div style="background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 12px; border-left: 3px solid var(--orange);">
+                        <strong style="color: white;">BEDROCK 🪨:</strong> <span style="color: #ccc;">Awalan nama isi "." (contoh: .Kentang6814)</span>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 12px; border-left: 3px solid var(--orange);">
+                        <strong style="color: white;">JAVA ☁️:</strong> <span style="color: #ccc;">Tidak perlu titik</span>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.3); padding: 20px; border-radius: 15px;">
+                    <h4 style="color: var(--orange); margin-bottom: 10px; font-size: 1.1rem; font-family: 'Montserrat';">NOTE 📄</h4>
+                    <p style="color: #ddd; font-size: 0.95rem; line-height: 1.6;">Harap saat vote harus dengan login di server biar dapat reward nya. Vote bisa berkali-kali dan dapatkan lebih banyak reward caranya vote server setiap 1 kali sehari.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="section" id="store">
         <h2 class="section-title">OFFICIAL STORE</h2>
-        <p style="margin-bottom: 30px;">Hubungi admin via WhatsApp untuk melakukan pembelian!</p>
+        <p style="margin-bottom: 30px; color: #aaa;">Pilih rank yang cocok untuk memperkuat petualanganmu di server!</p>
         <div class="store-grid">
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">⚔️</div>
-                <h3>Silver</h3>
+                <h3>SILVER</h3>
                 <div class="price">Rp 10.000</div>
                 <ul>
                     <li>/feed</li>
@@ -311,15 +330,15 @@
                     <li>block limit +12k</li>
                     <li>Player Vault +1</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Silver" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Silver" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
-
+            
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌟</div>
-                <h3>Golden</h3>
+                <h3>GOLDEN</h3>
                 <div class="price">Rp 15.000</div>
                 <ul>
-                    <li>*semua fitur rank Silver</li>
+                    <li>*Semua fitur rank Silver</li>
                     <li>/nick</li>
                     <li>/tp</li>
                     <li>/eskull</li>
@@ -327,15 +346,15 @@
                     <li>block limit +20k</li>
                     <li>Player Vault +2</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Golden" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Golden" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
 
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🏅</div>
-                <h3>Elite</h3>
+                <h3>ELITE</h3>
                 <div class="price">Rp 30.000</div>
                 <ul>
-                    <li>*semua fitur rank Golden</li>
+                    <li>*Semua fitur rank Golden</li>
                     <li>/fly</li>
                     <li>/repair</li>
                     <li>/heal</li>
@@ -343,31 +362,31 @@
                     <li>block limit +35k</li>
                     <li>Player Vault +2</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Elite" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Elite" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
-            
+
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌀</div>
-                <h3>Legend</h3>
+                <h3>LEGEND</h3>
                 <div class="price">Rp 50.000</div>
                 <ul>
-                    <li>*semua fitur rank Elite</li>
+                    <li>*Semua fitur rank Elite</li>
                     <li>/potion</li>
                     <li>/vanish</li>
                     <li>/speed</li>
                     <li>claim limit +3</li>
-                    <li>blocklimit +50k</li>
+                    <li>block limit +50k</li>
                     <li>Player Vault +3</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Legend" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Legend" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
-            
+
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🎣</div>
-                <h3>Slayer</h3>
+                <h3>SLAYER</h3>
                 <div class="price">Rp 80.000</div>
                 <ul>
-                    <li>*semua fitur rank Legend</li>
+                    <li>*Semua fitur rank Legend</li>
                     <li>/time set/day/night/noon</li>
                     <li>/enchant</li>
                     <li>/vanish</li>
@@ -375,47 +394,47 @@
                     <li>block limit +75k</li>
                     <li>Player Vault +4</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Slayer" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Slayer" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
-            
+
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🧊</div>
-                <h3>Frozen</h3>
+                <h3>FROZEN</h3>
                 <div class="price">Rp 135.000</div>
                 <ul>
-                    <li>*semua fitur rank Slayer</li>
+                    <li>*Semua fitur rank Slayer</li>
                     <li>/god</li>
                     <li>/invsee</li>
                     <li>/jump</li>
                     <li>claim limit +4</li>
-                    <li>blocklimit +100k</li>
+                    <li>block limit +100k</li>
                     <li>Player Vault +5</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Frozen" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Frozen" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
-            
+
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🚩</div>
-                <h3>Mythic</h3>
+                <h3>MYTHIC</h3>
                 <div class="price">Rp 185.000</div>
                 <ul>
-                    <li>*semua fitur rank Frozen</li>
+                    <li>*Semua fitur rank Frozen</li>
                     <li>/near</li>
                     <li>/weather set/sun/rain/thunder</li>
                     <li>/exp</li>
                     <li>claim limit +5</li>
-                    <li>blocklimit +150k</li>
+                    <li>block limit +150k</li>
                     <li>Player Vault +6</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Mythic" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Mythic" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
-            
+
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌂</div>
-                <h3>Immortal</h3>
+                <h3>IMMORTAL</h3>
                 <div class="price">Rp 240.000</div>
                 <ul>
-                    <li>*semua fitur rank Mythic</li>
+                    <li>*Semua fitur rank Mythic</li>
                     <li>- gma (adventure)</li>
                     <li>- gmsp (spectator)</li>
                     <li>- kill (diri sendiri)</li>
@@ -423,47 +442,59 @@
                     <li>claim block +200k</li>
                     <li>Player Vault +8</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Immortal" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Immortal" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
-            
+
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌿</div>
-                <h3>Celestial</h3>
+                <h3>CELESTIAL</h3>
                 <div class="price">Rp 300.000</div>
                 <ul>
-                    <li>*semua fitur rank Immortal</li>
+                    <li>*Semua fitur rank Immortal</li>
                     <li>/effect</li>
                     <li>/tp paksa</li>
                     <li>claim land +8</li>
                     <li>block limit +275k</li>
                     <li>Player Vault +10</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Celestial" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Celestial" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
-            
+
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌻</div>
-                <h3>Lunarlight</h3>
+                <h3>LUNARLIGHT</h3>
                 <div class="price">Rp 420.000</div>
                 <ul>
-                    <li>*semua fitur rank Celestial</li>
+                    <li>*Semua fitur rank Celestial</li>
                     <li>/attribute</li>
                     <li>/list</li>
                     <li>claim land +200</li>
-                    <li>blocklimit +500k</li>
+                    <li>block limit +500k</li>
                     <li>Player Vault +15</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20Rank%20Lunarlight" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Lunarlight" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+            </div>
+            
+            <div class="store-card">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">💰</div>
+                <h3>MONEY</h3>
+                <div class="price">Rp 3.000</div>
+                <ul style="text-align: center;">
+                    <li style="padding-left: 0; position: relative;">100k Money in-game</li>
+                </ul>
+                <style>.store-card:nth-last-child(2) ul li::before { display: none; }</style>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20topup%20money" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
 
-            <div class="store-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto;">
-                <div style="font-size: 2.5rem; margin-bottom: 15px;">💰</div>
-                <h3>Money & 🛡️ Skills</h3>
-                <ul>
-                    <li>100k Money = Rp 3.000</li>
-                    <li>2 Level Skill = Rp 2.500</li>
+            <div class="store-card">
+                <div style="font-size: 2.5rem; margin-bottom: 15px;">🛡️</div>
+                <h3>SKILLS</h3>
+                <div class="price">Rp 2.500</div>
+                <ul style="text-align: center;">
+                    <li style="padding-left: 0; position: relative;">2 Level Skill</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20topup" target="_blank" class="btn btn-main btn-buy" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <style>.store-card:last-child ul li::before { display: none; }</style>
+                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20skill" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
             </div>
         </div>
     </section>
@@ -471,21 +502,21 @@
     <section class="section" id="gallery">
         <h2 class="section-title">GALLERY SERVER</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://haykalfirdaus.github.io/potatosmp/potato1.jpg"></div>
-            <div class="gallery-item"><img src="https://haykalfirdaus.github.io/potatosmp/potato2.jpg"></div>
-            <div class="gallery-item"><img src="https://haykalfirdaus.github.io/potatosmp/potato3.jpg"></div>
-            <div class="gallery-item"><img src="https://haykalfirdaus.github.io/potatosmp/potato4.jpg"></div>
+            <div class="gallery-item"><img src="https://haykalfirdaus.github.io/potatosmp/potato1.jpg" alt="Potato SMP 1"></div>
+            <div class="gallery-item"><img src="https://haykalfirdaus.github.io/potatosmp/potato2.jpg" alt="Potato SMP 2"></div>
+            <div class="gallery-item"><img src="https://haykalfirdaus.github.io/potatosmp/potato3.jpg" alt="Potato SMP 3"></div>
+            <div class="gallery-item"><img src="https://haykalfirdaus.github.io/potatosmp/potato4.jpg" alt="Potato SMP 4"></div>
         </div>
     </section>
 
     <footer>
       <div class="footer-logo"><span style="color:var(--orange)">POTATO</span> SMP</div>
       <p>Server Minecraft Survival Economy Indonesia.</p>
-      <div style="margin-bottom: 30px; margin-top: 20px;">
-        <a href="syarat-ketentuan.html" style="margin: 0 10px;">Syarat & Ketentuan</a> |
-        <a href="https://discord.gg/PZ8gG2nkfb" style="margin: 0 10px;">Discord</a> |
-        <a href="https://whatsapp.com/channel/0029VbCPghX8KMqozpSyn724" style="margin: 0 10px;">WhatsApp Channel</a> |
-        <a href="https://chat.whatsapp.com/DsOfXHhMbOPLukvvU7iYPk" style="margin: 0 10px;">Group Chat</a>
+      <div style="margin-bottom: 30px;">
+        <a href="syarat-ketentuan.html">Syarat & Ketentuan</a> |
+        <a href="https://discord.gg/PZ8gG2nkfb" target="_blank">Discord</a> |
+        <a href="https://whatsapp.com/channel/0029VbCPghX8KMqozpSyn724" target="_blank">WhatsApp Channel</a> |
+        <a href="https://chat.whatsapp.com/DsOfXHhMbOPLukvvU7iYPk" target="_blank">Group Chat</a>
       </div>
       <p style="font-size: 0.75rem; color: #444;">© 2024 - 2026 Potato SMP Network.</p>
     </footer>
@@ -494,12 +525,19 @@
     async function updateStatus(){
       const el = document.getElementById('playerStatus');
       try {
-        const res = await fetch('https://api.mcsrvstat.us/2/play.potatosmp.my.id:19132');
+        const res = await fetch('https://api.mcsrvstat.us/bedrock/3/play.potatosmp.my.id:19132');
         const data = await res.json();
         if (data.online) {
-            el.innerText = data.players.online;
+            el.innerHTML = `<span style="color:#25d366">${data.players.online}</span>`;
         } else {
-            el.innerHTML = '<span style="color:#ff4444">OFFLINE</span>';
+            // Fallback to java API just in case
+            const resJava = await fetch('https://api.mcsrvstat.us/3/play.potatosmp.my.id:19132');
+            const dataJava = await resJava.json();
+            if(dataJava.online) {
+                el.innerHTML = `<span style="color:#25d366">${dataJava.players.online}</span>`;
+            } else {
+                el.innerHTML = '<span style="color:#ff4444">OFFLINE</span>';
+            }
         }
       } catch (e) {
         el.innerHTML = '<span style="color:#ff4444">OFFLINE</span>';
@@ -518,7 +556,7 @@
     document.querySelectorAll('.copy-el').forEach(el => {
         el.addEventListener('click', () => {
             const strong = el.querySelector('strong');
-            const text = strong.textContent.replace(' 📋','').trim();
+            const text = strong.textContent.replace(' 📋','');
             navigator.clipboard.writeText(text).then(() => {
                 alert('Tersalin: ' + text);
             });
