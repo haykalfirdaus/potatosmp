@@ -362,7 +362,6 @@
                     <li>/feed</li>
                     <li>/anvil</li>
                     <li>/enderchest</li>
-                    <li>/craft</li>
                     <li>Claim limit +1</li>
                     <li>block limit +12k</li>
                     <li>Player Vault +1</li>
@@ -376,8 +375,8 @@
                 <div class="price">Rp 15.000</div>
                 <ul>
                     <li>*Semua fitur rank Silver</li>
-                    <li>/nick</li>
                     <li>/tp</li>
+                    <li>/nick</li>
                     <li>/eskull</li>
                     <li>claim limit +2</li>
                     <li>block limit +20k</li>
@@ -395,6 +394,8 @@
                     <li>/fly</li>
                     <li>/repair</li>
                     <li>/heal</li>
+                    <li>/compass</li>
+                    <li>/itemlore</li>
                     <li>claim limit +2</li>
                     <li>block limit +35k</li>
                     <li>Player Vault +2</li>
@@ -408,11 +409,11 @@
                 <div class="price">Rp 50.000</div>
                 <ul>
                     <li>*Semua fitur rank Elite</li>
-                    <li>/potion</li>
+                    <li>/itemname</li>
                     <li>/vanish</li>
                     <li>/speed</li>
                     <li>claim limit +3</li>
-                    <li>block limit +50k</li>
+                    <li>blocklimit +50k</li>
                     <li>Player Vault +3</li>
                 </ul>
                 <a href="https://wa.me/6285137375162?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Legend" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
@@ -426,6 +427,7 @@
                     <li>*Semua fitur rank Legend</li>
                     <li>/time set/day/night/noon</li>
                     <li>/enchant</li>
+                    <li>/burn</li>
                     <li>/vanish</li>
                     <li>claim limit +3</li>
                     <li>block limit +75k</li>
@@ -444,7 +446,7 @@
                     <li>/invsee</li>
                     <li>/jump</li>
                     <li>claim limit +4</li>
-                    <li>block limit +100k</li>
+                    <li>blocklimit +100k</li>
                     <li>Player Vault +5</li>
                 </ul>
                 <a href="https://wa.me/6285137375162?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Frozen" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
@@ -460,7 +462,7 @@
                     <li>/weather set/sun/rain/thunder</li>
                     <li>/exp</li>
                     <li>claim limit +5</li>
-                    <li>block limit +150k</li>
+                    <li>blocklimit +150k</li>
                     <li>Player Vault +6</li>
                 </ul>
                 <a href="https://wa.me/6285137375162?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Mythic" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
@@ -472,9 +474,10 @@
                 <div class="price">Rp 240.000</div>
                 <ul>
                     <li>*Semua fitur rank Mythic</li>
-                    <li>- gma (adventure)</li>
-                    <li>- gmsp (spectator)</li>
-                    <li>- kill (diri sendiri)</li>
+                    <li>beezoka</li>
+                    <li>gma (adventure)</li>
+                    <li>gmsp (spectator)</li>
+                    <li>kill (diri sendiri)</li>
                     <li>claim limit +6</li>
                     <li>claim block +200k</li>
                     <li>Player Vault +8</li>
@@ -504,9 +507,9 @@
                 <ul>
                     <li>*Semua fitur rank Celestial</li>
                     <li>/attribute</li>
-                    <li>/list</li>
+                    <li>/potion</li>
                     <li>claim land +200</li>
-                    <li>block limit +500k</li>
+                    <li>blocklimit +500k</li>
                     <li>Player Vault +15</li>
                 </ul>
                 <a href="https://wa.me/6285137375162?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Lunarlight" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
@@ -567,7 +570,6 @@
         if (data.online) {
             el.innerHTML = `<span style="color:#25d366">${data.players.online}</span>`;
         } else {
-            // Fallback to java API just in case
             const resJava = await fetch('https://api.mcsrvstat.us/3/play.potatosmp.my.id:19132');
             const dataJava = await resJava.json();
             if(dataJava.online) {
