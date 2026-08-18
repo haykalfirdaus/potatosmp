@@ -118,9 +118,17 @@
         .store-card { background: linear-gradient(145deg, #111, #080808); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; text-align: center; }
         .store-card h3 { font-family: 'Montserrat'; font-size: 1.6rem; margin-bottom: 10px; color: var(--orange); }
         .store-card .price { font-size: 1.5rem; font-weight: bold; color: white; margin-bottom: 20px; }
+        .price-list { text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255, 107, 53, 0.2); }
+        .price-list div { display: flex; justify-content: space-between; margin-bottom: 8px; color: #ccc; font-size: 0.9rem; }
+        .price-list div:last-child { margin-bottom: 0; }
+        .price-list strong { color: white; font-size: 0.95rem; }
         .store-card ul { text-align: left; color: #ccc; font-size: 0.85rem; margin-bottom: 30px; list-style: none; }
         .store-card ul li { margin-bottom: 10px; padding-left: 15px; position: relative; }
         .store-card ul li::before { content: "•"; color: var(--orange); position: absolute; left: 0; font-weight: bold; }
+
+        .info-box { background: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.3); padding: 25px; border-radius: 20px; text-align: left; max-width: 900px; margin: 0 auto 40px; }
+        .info-box h4 { color: var(--orange); margin-bottom: 10px; font-size: 1.2rem; font-family: 'Montserrat'; }
+        .info-box p { color: #ddd; font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
         .gallery-item { border-radius: 35px; overflow: hidden; height: 320px; border: 3px solid rgba(255,255,255,0.05); transition: 0.3s; }
@@ -135,6 +143,35 @@
         footer { padding: 100px 8% 50px; text-align: center; background: #030303; border-top: 2px solid var(--orange); }
         .footer-logo { font-size: 1.8rem; font-weight: 900; margin-bottom: 25px; font-family: 'Montserrat'; }
         footer a { color: var(--orange); text-decoration: none; font-weight: 600; }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 3000;
+            display: none; justify-content: center; align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: var(--bg-dark); padding: 30px; border-radius: 20px;
+            border: 2px solid var(--orange); box-shadow: var(--glow);
+            width: 90%; max-width: 400px; position: relative;
+        }
+        .modal-close {
+            position: absolute; top: 15px; right: 20px; color: #fff;
+            font-size: 1.5rem; cursor: pointer; transition: 0.3s;
+        }
+        .modal-close:hover { color: var(--orange); }
+        .modal-content h3 { color: var(--orange); margin-bottom: 20px; font-family: 'Montserrat'; text-align: center; }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; color: #ccc; margin-bottom: 5px; font-size: 0.9rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px; border-radius: 10px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255, 107, 53, 0.3);
+            color: white; font-family: 'Poppins'; outline: none; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--orange); box-shadow: 0 0 10px rgba(255, 107, 53, 0.2); }
+        .form-group select option { background: var(--bg-dark); color: white; }
 
         @media (max-width: 768px) {
             .list-grid, .gallery-grid, .tutorial-grid { grid-template-columns: 1fr; }
@@ -352,167 +389,229 @@
 
     <section class="section" id="store">
         <h2 class="section-title">OFFICIAL STORE</h2>
+        
+        <div class="info-box">
+            <h4>INFO PENTING ⚠️</h4>
+            <p>Harga upgrade rank adalah harga selisih rank yang mau di-upgrade dan rank kamu sekarang. Contoh: Jika kamu memiliki Rank Elite 1 Bulan (18k) dan mau upgrade ke Rank Legend 1 Bulan (29k), harga upgrade-nya adalah <strong>11k</strong>.</p>
+        </div>
+
         <p style="margin-bottom: 30px; color: #aaa;">Pilih rank yang cocok untuk memperkuat petualanganmu di server!</p>
         <div class="store-grid">
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">⚔️</div>
                 <h3>SILVER</h3>
-                <div class="price">Rp 10.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 5.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 7.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 10.000</strong></div>
+                </div>
                 <ul>
                     <li>/feed</li>
                     <li>/anvil</li>
                     <li>/enderchest</li>
-                    <li>Claim limit +1</li>
-                    <li>block limit +12k</li>
-                    <li>Player Vault +1</li>
+                    <li>Claim Limit: 4</li>
+                    <li>SetHome: 4</li>
+                    <li>Block Limit: 12K</li>
+                    <li>Player Vault: 1</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Silver" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Silver', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
             
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌟</div>
                 <h3>GOLDEN</h3>
-                <div class="price">Rp 15.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 9.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 13.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 16.000</strong></div>
+                </div>
                 <ul>
-                    <li>*Semua fitur rank Silver</li>
+                    <li>Semua fitur Silver</li>
                     <li>/tp</li>
                     <li>/nick</li>
                     <li>/eskull</li>
-                    <li>claim limit +2</li>
-                    <li>block limit +20k</li>
-                    <li>Player Vault +2</li>
+                    <li>Claim Limit: 6</li>
+                    <li>SetHome: 7</li>
+                    <li>Block Limit: 20K</li>
+                    <li>Player Vault: 2</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Golden" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Golden', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
 
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🏅</div>
                 <h3>ELITE</h3>
-                <div class="price">Rp 30.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 18.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 25.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 30.000</strong></div>
+                </div>
                 <ul>
-                    <li>*Semua fitur rank Golden</li>
+                    <li>Semua fitur Golden</li>
                     <li>/fly</li>
                     <li>/repair</li>
                     <li>/heal</li>
                     <li>/compass</li>
                     <li>/itemlore</li>
-                    <li>claim limit +2</li>
-                    <li>block limit +35k</li>
-                    <li>Player Vault +2</li>
+                    <li>Claim Limit: 7</li>
+                    <li>SetHome: 10</li>
+                    <li>Block Limit: 35K</li>
+                    <li>Player Vault: 2</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Elite" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Elite', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
 
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌀</div>
                 <h3>LEGEND</h3>
-                <div class="price">Rp 50.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 29.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 40.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 51.000</strong></div>
+                </div>
                 <ul>
-                    <li>*Semua fitur rank Elite</li>
+                    <li>Semua fitur Elite</li>
                     <li>/itemname</li>
                     <li>/vanish</li>
                     <li>/speed</li>
-                    <li>claim limit +3</li>
-                    <li>blocklimit +50k</li>
-                    <li>Player Vault +3</li>
+                    <li>Claim Limit: 10</li>
+                    <li>SetHome: 15</li>
+                    <li>Block Limit: 50K</li>
+                    <li>Player Vault: 3</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Legend" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Legend', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
 
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🎣</div>
                 <h3>SLAYER</h3>
-                <div class="price">Rp 80.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 39.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 64.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 80.000</strong></div>
+                </div>
                 <ul>
-                    <li>*Semua fitur rank Legend</li>
-                    <li>/time set/day/night/noon</li>
+                    <li>Semua fitur Legend</li>
+                    <li>/time set day</li>
+                    <li>/time set night</li>
+                    <li>/time set noon</li>
                     <li>/enchant</li>
                     <li>/burn</li>
                     <li>/vanish</li>
-                    <li>claim limit +3</li>
-                    <li>block limit +75k</li>
-                    <li>Player Vault +4</li>
+                    <li>Claim Limit: 14</li>
+                    <li>SetHome: 20</li>
+                    <li>Block Limit: 75K</li>
+                    <li>Player Vault: 4</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Slayer" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Slayer', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
 
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🧊</div>
                 <h3>FROZEN</h3>
-                <div class="price">Rp 135.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 57.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 78.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 130.000</strong></div>
+                </div>
                 <ul>
-                    <li>*Semua fitur rank Slayer</li>
+                    <li>Semua fitur Slayer</li>
                     <li>/god</li>
                     <li>/invsee</li>
                     <li>/jump</li>
-                    <li>claim limit +4</li>
-                    <li>blocklimit +100k</li>
-                    <li>Player Vault +5</li>
+                    <li>Claim Limit: 18</li>
+                    <li>SetHome: 25</li>
+                    <li>Block Limit: 100K</li>
+                    <li>Player Vault: 5</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Frozen" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Frozen', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
 
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🚩</div>
                 <h3>MYTHIC</h3>
-                <div class="price">Rp 185.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 78.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 100.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 170.000</strong></div>
+                </div>
                 <ul>
-                    <li>*Semua fitur rank Frozen</li>
+                    <li>Semua fitur Frozen</li>
                     <li>/near</li>
-                    <li>/weather set/sun/rain/thunder</li>
+                    <li>/weather set sun</li>
+                    <li>/weather set rain</li>
+                    <li>/weather set thunder</li>
                     <li>/exp</li>
-                    <li>claim limit +5</li>
-                    <li>blocklimit +150k</li>
-                    <li>Player Vault +6</li>
+                    <li>Claim Limit: 24</li>
+                    <li>SetHome: 35</li>
+                    <li>Block Limit: 150K</li>
+                    <li>Player Vault: 6</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Mythic" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Mythic', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
 
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌂</div>
                 <h3>IMMORTAL</h3>
-                <div class="price">Rp 240.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 99.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 135.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 225.000</strong></div>
+                </div>
                 <ul>
-                    <li>*Semua fitur rank Mythic</li>
-                    <li>beezoka</li>
-                    <li>gma (adventure)</li>
-                    <li>gmsp (spectator)</li>
-                    <li>kill (diri sendiri)</li>
-                    <li>claim limit +6</li>
-                    <li>claim block +200k</li>
-                    <li>Player Vault +8</li>
+                    <li>Semua fitur Mythic</li>
+                    <li>/beezoka</li>
+                    <li>/gma (Adventure)</li>
+                    <li>/gmsp (Spectator)</li>
+                    <li>/kill (Diri sendiri)</li>
+                    <li>Claim Limit: 30</li>
+                    <li>SetHome: 50</li>
+                    <li>Block Limit: 200K</li>
+                    <li>Player Vault: 8</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Immortal" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Immortal', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
 
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌿</div>
                 <h3>CELESTIAL</h3>
-                <div class="price">Rp 300.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 120.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 195.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 289.000</strong></div>
+                </div>
                 <ul>
-                    <li>*Semua fitur rank Immortal</li>
+                    <li>Semua fitur Immortal</li>
                     <li>/effect</li>
                     <li>/tp paksa</li>
-                    <li>claim land +8</li>
-                    <li>block limit +275k</li>
-                    <li>Player Vault +10</li>
+                    <li>Claim Land: 8</li>
+                    <li>Claim Limit: 40</li>
+                    <li>SetHome: 100</li>
+                    <li>Block Limit: 275K</li>
+                    <li>Player Vault: 10</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Celestial" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Celestial', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
 
             <div class="store-card">
                 <div style="font-size: 2.5rem; margin-bottom: 15px;">🌻</div>
                 <h3>LUNARLIGHT</h3>
-                <div class="price">Rp 420.000</div>
+                <div class="price-list">
+                    <div><span>1 Bulan:</span><strong>Rp 145.000</strong></div>
+                    <div><span>3 Bulan:</span><strong>Rp 301.000</strong></div>
+                    <div><span>1 Tahun:</span><strong>Rp 398.000</strong></div>
+                </div>
                 <ul>
-                    <li>*Semua fitur rank Celestial</li>
+                    <li>Semua fitur Celestial</li>
                     <li>/attribute</li>
                     <li>/potion</li>
-                    <li>claim land +200</li>
-                    <li>blocklimit +500k</li>
-                  <li>Player Vault +15</li>
+                    <li>Claim Land: 200</li>
+                    <li>Claim Limit: 50</li>
+                    <li>SetHome: 200</li>
+                    <li>Block Limit: 500K</li>
+                    <li>Player Vault: 15</li>
                 </ul>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20rank%20Lunarlight" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Rank Lunarlight', true)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
             
             <div class="store-card">
@@ -523,7 +622,7 @@
                     <li style="padding-left: 0; position: relative;">100k Money in-game</li>
                 </ul>
                 <style>.store-card:nth-last-child(2) ul li::before { display: none; }</style>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20topup%20money" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Money In-game', false)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
 
             <div class="store-card">
@@ -534,7 +633,7 @@
                     <li style="padding-left: 0; position: relative;">2 Level Skill</li>
                 </ul>
                 <style>.store-card:last-child ul li::before { display: none; }</style>
-                <a href="https://wa.me/6282340319193?text=Halo%20admin,%20saya%20mau%20beli%20skill" target="_blank" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</a>
+                <button onclick="openCheckout('Level Skill', false)" class="btn btn-main" style="width: 100%; justify-content: center;">BELI VIA ADMIN</button>
             </div>
         </div>
     </section>
@@ -560,6 +659,34 @@
       </div>
       <p style="font-size: 0.75rem; color: #444;">© 2024 - 2026 Potato SMP Network.</p>
     </footer>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeCheckout()">&times;</span>
+            <h3 id="modalTitle">Beli Rank</h3>
+            <div class="form-group">
+                <label>Nickname Minecraft:</label>
+                <input type="text" id="ignInput" placeholder="Masukkan Nickname" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Platform:</label>
+                <select id="platformSelect">
+                    <option value="Java">Java</option>
+                    <option value="Bedrock">Bedrock</option>
+                </select>
+            </div>
+            <div class="form-group" id="durationGroup">
+                <label>Durasi Beli:</label>
+                <select id="durationSelect">
+                    <option value="1 Bulan">1 Bulan</option>
+                    <option value="3 Bulan">3 Bulan</option>
+                    <option value="1 Tahun">1 Tahun</option>
+                </select>
+            </div>
+            <button class="btn btn-main" style="width: 100%; justify-content: center; margin-top: 15px;" onclick="processCheckout()">Lanjut ke WhatsApp</button>
+        </div>
+    </div>
 
     <script>
     async function updateStatus(){
@@ -605,6 +732,47 @@
     function toggleSidebar() { 
         document.getElementById('sidebar').classList.toggle('active'); 
         document.getElementById('overlay').classList.toggle('active'); 
+    }
+
+    let currentItem = "";
+    let isItemRank = true;
+
+    function openCheckout(itemName, isRank) {
+        currentItem = itemName;
+        isItemRank = isRank;
+        document.getElementById('modalTitle').innerText = "Beli " + itemName;
+        document.getElementById('checkoutModal').classList.add('active');
+        
+        if (isRank) {
+            document.getElementById('durationGroup').style.display = 'block';
+        } else {
+            document.getElementById('durationGroup').style.display = 'none';
+        }
+    }
+
+    function closeCheckout() {
+        document.getElementById('checkoutModal').classList.remove('active');
+        document.getElementById('ignInput').value = '';
+    }
+
+    function processCheckout() {
+        const ign = document.getElementById('ignInput').value;
+        const platform = document.getElementById('platformSelect').value;
+        const duration = document.getElementById('durationSelect').value;
+        
+        if (!ign.trim()) {
+            alert("Harap isi Nickname Minecraft terlebih dahulu!");
+            return;
+        }
+
+        let text = `Halo admin, saya mau beli ${currentItem}.\n\n- Nickname: ${ign}\n- Platform: ${platform}`;
+        if (isItemRank) {
+            text += `\n- Durasi: ${duration}`;
+        }
+
+        const waUrl = `https://wa.me/6282340319193?text=${encodeURIComponent(text)}`;
+        window.open(waUrl, '_blank');
+        closeCheckout();
     }
 
     updateStatus();
